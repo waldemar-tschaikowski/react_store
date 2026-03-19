@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.leftAside {
+    background-color: lightpink;
+    color: white;
+}
+
+.navItems {
+    display: flex;
+    flex-direction: column;
+}

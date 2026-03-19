@@ -1,0 +1,50 @@
+import axios from "axios";
+import { Formik, Form, Field } from "formik";
+
+interface LoginValues {
+  email: string;
+  password: string;
+}
+
+async function fetchLogin(values: LoginValues) {
+  const LOGIN_URL = "https://api.escuelajs.co/api/v1/auth/login";
+  const { data, status } = await axios.post(LOGIN_URL, values);
+  console.log(data, status);
+}
+
+const LoginPage = () => {
+  const initialValues: LoginValues = {
+    email: "",
+    password: ""
+  };
+
+  return (
+    <div>
+      <h1>Sign in</h1>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values, actions) => {
+          fetchLogin(values);
+          actions.setSubmitting(false);
+        }}
+      >
+        <Form>
+          <label htmlFor="email">Email</label>
+          <Field id="email" name="email" placeholder="Email" />
+
+          <label htmlFor="password">Password</label>
+          <Field
+            id="password"
+            name="password"
+            placeholder="Password"
+            type="password"
+          />
+
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </div>
+  );
+};
+
+export default LoginPage;

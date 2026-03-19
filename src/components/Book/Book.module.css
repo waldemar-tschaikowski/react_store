@@ -1,0 +1,10 @@
+.card {
+  background-color: lightcoral;
+  border-radius: 1rem;
+  width: 350px;
+  padding: 1rem;
+}
+
+.card img {
+  width: 70%;
+}
