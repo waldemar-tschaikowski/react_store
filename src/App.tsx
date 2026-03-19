@@ -15,6 +15,7 @@ import UsersPage from "./pages/UsersPage";
 import UserPage from "./pages/UserPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import CreateCategory from "./pages/CreateCategory";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+
+            <Route path="/categories/create" element={<CreateCategory />} />
+            
             <Route path="/counter" element={<Counter />} />
             <Route path="/space-mission" element={<SpaceMission />} />
             <Route path="/about" element={<About />} />

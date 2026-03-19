@@ -13,6 +13,11 @@ export default function NavBar() {
       <NavLink to="/" className={getClasses}>
         Home
       </NavLink>
+
+       <NavLink to="/categories/create" className={getClasses}>
+        Create Category
+      </NavLink>
+
       <NavLink to="/space-mission" className={getClasses}>
         Space mission
       </NavLink>
