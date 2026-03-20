@@ -1,25 +1,9 @@
-import { useState } from "react";
 import { Button } from "../ui/Button/Button";
+import useCounter from "./useCounter";
 
 export const Counter = () => {
   const headingText = "Counter";
-  const [count, setCount] = useState<number>(0);
-
-  // hook
-
-  function handlePlus() {
-    // setCount(15);
-    setCount((prev) => prev + 1);
-    // console.log(count);
-  }
-
-  function handleMinus() {
-    setCount((prev) => prev - 1);
-  }
-
-  function handleClear() {
-    setCount(0);
-  }
+  const { count, handleClear, handleMinus, handlePlus } = useCounter();
 
   return (
     <div>

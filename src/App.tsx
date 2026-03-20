@@ -15,7 +15,8 @@ import UsersPage from "./pages/UsersPage";
 import UserPage from "./pages/UserPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import CreateCategory from "./pages/CreateCategory";
+import CategoriesPage from "./pages/CategoriesPage";
+import { CreateCategoryPage } from "./pages/CreateCategoryPage";
 
 function App() {
   return (
@@ -24,9 +25,6 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
-
-            <Route path="/categories/create" element={<CreateCategory />} />
-            
             <Route path="/counter" element={<Counter />} />
             <Route path="/space-mission" element={<SpaceMission />} />
             <Route path="/about" element={<About />} />
@@ -39,6 +37,8 @@ function App() {
             <Route path="/signup" element={<RegisterPage />} />
 
             <Route path="/signin" element={<LoginPage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/categories/create" element={<CreateCategoryPage />} />
 
             <Route path="/profile" element={<ProfileLayout />}>
               <Route path="/profile" element={<Greeting name="John" />} />

@@ -13,11 +13,6 @@ export default function NavBar() {
       <NavLink to="/" className={getClasses}>
         Home
       </NavLink>
-
-       <NavLink to="/categories/create" className={getClasses}>
-        Create Category
-      </NavLink>
-
       <NavLink to="/space-mission" className={getClasses}>
         Space mission
       </NavLink>
@@ -32,6 +27,12 @@ export default function NavBar() {
       </NavLink>
       <NavLink to="/users" className={getClasses}>
         Users
+      </NavLink>
+      <NavLink to="/categories" className={getClasses}>
+        Categories
+      </NavLink>
+      <NavLink to="/categories/create" className={getClasses}>
+        Add Category
       </NavLink>
       <NavLink to="/signup" className={getClasses}>
         Sign up
