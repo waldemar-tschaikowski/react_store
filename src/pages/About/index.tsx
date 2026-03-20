@@ -1,5 +1,6 @@
+import useAuth from "../../hooks/useAuth";
+
 export default function About() {
-  return (
-    <div>About</div>
-  )
+  const { user } = useAuth();
+  return <div>Dear {user?.name}! Our site can...</div>;
 }

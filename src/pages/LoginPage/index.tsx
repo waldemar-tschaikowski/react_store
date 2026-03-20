@@ -1,10 +1,13 @@
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
+import useAuth from "../../hooks/useAuth";
 
 interface LoginValues {
   email: string;
   password: string;
 }
+
+const PROFILE_URL = "https://api.escuelajs.co/api/v1/auth/profile";
 
 async function fetchLogin(values: LoginValues) {
   const LOGIN_URL = "https://api.escuelajs.co/api/v1/auth/login";
@@ -15,6 +18,7 @@ async function fetchLogin(values: LoginValues) {
 }
 
 const LoginPage = () => {
+  const { setUser } = useAuth();
   const initialValues: LoginValues = {
     email: "",
     password: "",
@@ -24,8 +28,21 @@ const LoginPage = () => {
       <h1>Sign in</h1>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          fetchLogin(values);
+        onSubmit={async (values, actions) => {
+          await fetchLogin(values);
+
+          const accessToken = localStorage.getItem("access_token");
+
+          const config = {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          };
+          // получили юзера с сервера по токену
+          const { data } = await axios.get(PROFILE_URL, config);
+          // сохранили этого юзера в контекст
+          setUser(data);
+
           actions.setSubmitting(false);
         }}
       >

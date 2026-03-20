@@ -1,8 +1,9 @@
+import React from "react";
 import {useToggle} from "./useToggle";
 
 export const ToggleSwitchButton: React.FC = () => {
   const { isOn, toggle } = useToggle(false);
-  
+
   return (
     <div>
       <span>{isOn ? "ON" : "OFF"}</span>
