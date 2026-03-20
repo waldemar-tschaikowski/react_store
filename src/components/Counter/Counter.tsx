@@ -1,3 +1,4 @@
+import { ToggleSwitchButton } from "../ToggleSwitchButton/ToggleSwitchButton";
 import { Button } from "../ui/Button/Button";
 import useCounter from "./useCounter";
 
@@ -16,6 +17,7 @@ export const Counter = () => {
       <Button onClick={handleClear} variant="danger">
         Clear
       </Button>
+      <ToggleSwitchButton />
     </div>
   );
 };
