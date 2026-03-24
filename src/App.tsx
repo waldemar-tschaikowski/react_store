@@ -18,12 +18,14 @@ import LoginPage from "./pages/LoginPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import { CreateCategoryPage } from "./pages/CreateCategoryPage";
 import { AuthProvider } from "./providers/AuthProvider";
+import { CartProvider } from "./providers/CartProvider";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
+          <CartProvider>
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Home />} />
@@ -56,6 +58,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
+          </CartProvider>
         </AuthProvider>
       </BrowserRouter>
     </>

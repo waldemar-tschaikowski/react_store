@@ -3,6 +3,7 @@ import styles from "./NavBar.module.css";
 import clsx from "clsx";
 import LogoutButton from "../LogoutButton";
 import useAuth from "../../hooks/useAuth";
+import useCartCount from "../../hooks/useCartCount";
 
 const getClasses = ({ isActive }: { isActive: boolean }) =>
   clsx(styles.link, isActive && styles.active);
@@ -59,11 +60,13 @@ const AuthLinks = (
 
 export default function NavBar() {
   const { user } = useAuth();
+  const {count} = useCartCount();
 
   return (
     <nav className={styles.navbar}>
       {generalLinks}
       {user ? SignedInUserLinks : AuthLinks}
+      <span>Cart: {count}</span>
     </nav>
   );
 }

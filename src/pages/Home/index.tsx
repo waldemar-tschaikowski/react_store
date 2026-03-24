@@ -6,6 +6,7 @@ import { ChildB } from "../../components/ChildB";
 
 export default function Home() {
   const [count, setCount] = useState(0);
+
   return (
     <div className={styles.container}>
       Home

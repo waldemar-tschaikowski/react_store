@@ -6,6 +6,7 @@ export default function MainLayout() {
     <>
       <NavBar />
       <Outlet />
+
       <footer>Футер</footer>
     </>
   );
